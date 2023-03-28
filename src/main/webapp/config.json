@@ -27,7 +27,7 @@
           "foundSignupDate": ""
         }
       ],
-      "url": "https://flysh.link/execute", 
+      "url": "https://flysh.link/call/test", 
       "verb": "POST"
     }
   },
