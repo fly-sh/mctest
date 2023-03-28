@@ -28,7 +28,7 @@
         }
       ],
       "url": "https://flysh.link/call/test", 
-      "verb": "POST"
+      "verb": "GET"
     }
   },
   "configurationArguments": {
