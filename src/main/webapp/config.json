@@ -1,0 +1,77 @@
+{
+  "workflowApiVersion": "1.1",
+  "key" : "13068ea8-56a7-4dde-92dd-0a593d815d51",
+  "metaData": {
+    "icon": "resources/images/alert.png",
+    "category": "message"
+  },
+  "type": "REST",
+  "lang": {
+    "en-US": {
+      "name": "mctest_sms",
+      "description": ""
+    }
+  },
+  "arguments": {
+    "execute": {
+      "inArguments": [
+        {
+          "phoneNumber": "{{Contact.psh_sms.PhoneNumber}}"
+        },
+        {
+          "message": "{{Contact.psh_sms.message}}"
+        }
+      ],
+      "outArguments": [
+        {
+          "foundSignupDate": ""
+        }
+      ],
+      "url": "https://flysh.link/execute", 
+      "verb": "POST"
+    }
+  },
+  "configurationArguments": {
+  		"applicationExtensionKey": "13068ea8-56a7-4dde-92dd-0a593d815d51"
+  },
+  "wizardSteps": [
+    { "label": "Step 1", "key": "step1" }
+  ],
+  "userInterfaces": {
+    "configModal": {
+      "height": 600,
+      "width": 500
+    }
+  },
+  "schema": {
+    "arguments": {
+      "execute": {
+        "inArguments": [
+         	{
+	            "phoneNumber": {
+	              "dataType": "Text",
+	              "isNullable": false,
+	              "direction": "in"
+	            }
+	          },
+	          {
+	            "message": {
+	              "dataType": "Text",
+	              "isNullable": false,
+	              "direction": "in"
+	            }
+	          }
+      	],
+        "outArguments": [
+	          {
+	            "foundSignupDate": {
+	              "dataType": "Date",
+	              "direction": "out",
+	              "access": "visible"
+	            }
+	          }
+        ]
+      }
+    }
+  }
+}
