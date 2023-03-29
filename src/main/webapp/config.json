@@ -1,6 +1,6 @@
 {
   "workflowApiVersion": "1.1",
-  "key" : "13068ea8-56a7-4dde-92dd-0a593d815d51",
+  "key" : "57f2111a-9493-4860-83f7-9fd7af715b4e",
   "metaData": {
     "icon": "resources/images/alert.png",
     "category": "message"
@@ -31,8 +31,27 @@
       "verb": "POST"
     }
   },
-  "configurationArguments": {
-  		"applicationExtensionKey": "13068ea8-56a7-4dde-92dd-0a593d815d51"
+  "configurationArguments": { 		
+	  	"save": {
+	      "url": "https://flysh.link/call/test",
+	      "verb": "POST",
+	      "useJwt": false
+	     },
+	     "publish": {
+	      "url": "https://flysh.link/call/test",
+	      "verb": "POST",
+	      "useJwt": false
+	     },
+	    "stop": {
+	      "url": "https://flysh.link/call/test",
+	      "verb": "POST",
+	      "useJwt": false
+	    },
+	    "validate": {
+	      "url": "https://flysh.link/call/test",
+	      "verb": "POST",
+	      "useJwt": false
+	    }
   },
   "wizardSteps": [
     { "label": "Step 1", "key": "step1" }
