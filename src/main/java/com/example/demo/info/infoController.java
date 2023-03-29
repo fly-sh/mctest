@@ -10,6 +10,8 @@ public class infoController {
 
 	@GetMapping("/test")
 	public String test() {
+		
+		System.out.println("/call/test call success");
 		return "result 200";
 	}
 }
