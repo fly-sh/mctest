@@ -5,7 +5,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.info.model.CallModel;
@@ -15,8 +14,8 @@ import com.example.demo.info.model.CallModel;
 public class infoController {
 
 	@RequestMapping(value="/test", method = {RequestMethod.POST})
-	public String test(@RequestParam("phoneNumber") String phoneNumber) {
-		System.out.println("phoneNumber :: "+phoneNumber);
+	public String test(@RequestBody CallModel infoVO) {
+		System.out.println("infoVO :: "+infoVO.toString());
 		System.out.println("/call/test call success");
 		return "result 200";
 	}
