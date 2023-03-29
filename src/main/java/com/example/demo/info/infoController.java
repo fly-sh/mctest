@@ -19,4 +19,10 @@ public class infoController {
 		System.out.println("/call/test call success");
 		return "result 200";
 	}
+	@RequestMapping(value="/save", method = {RequestMethod.POST})
+	public String save(@RequestBody CallModel infoVO) {
+		
+		System.out.println("/call/save call success");
+		return "result 200";
+	}
 }

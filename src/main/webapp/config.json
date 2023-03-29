@@ -33,7 +33,26 @@
     }
   },
   "configurationArguments": { 		
-	  	
+	  	"save": {
+	      "url": "https://flysh.link/call/save",
+	      "verb": "POST",
+	      "useJwt": false
+	     },
+	     "publish": {
+	      "url": "https://flysh.link/call/save",
+	      "verb": "POST",
+	      "useJwt": false
+	     },
+	    "stop": {
+	      "url": "https://flysh.link/call/save",
+	      "verb": "POST",
+	      "useJwt": false
+	    },
+	    "validate": {
+	      "url": "https://flysh.link/call/save",
+	      "verb": "POST",
+	      "useJwt": false
+	    }
   },
   "wizardSteps": [
     { "label": "Step 1", "key": "step1" }
