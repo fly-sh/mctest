@@ -33,26 +33,7 @@
     }
   },
   "configurationArguments": { 		
-	  	"save": {
-	      "url": "",
-	      "verb": "POST",
-	      "useJwt": false
-	     },
-	     "publish": {
-	      "url": "",
-	      "verb": "POST",
-	      "useJwt": false
-	     },
-	    "stop": {
-	      "url": "",
-	      "verb": "POST",
-	      "useJwt": false
-	    },
-	    "validate": {
-	      "url": "",
-	      "verb": "POST",
-	      "useJwt": false
-	    }
+	  	
   },
   "wizardSteps": [
     { "label": "Step 1", "key": "step1" }
