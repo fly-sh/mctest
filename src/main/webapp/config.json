@@ -1,6 +1,5 @@
 {
   "workflowApiVersion": "1.1",
-  "key" : "57f2111a-9493-4860-83f7-9fd7af715b4e",
   "metaData": {
     "icon": "resources/images/alert.png",
     "category": "message"
@@ -22,13 +21,17 @@
           "message": "{{Contact.psh_sms.message}}"
         }
       ],
-      "outArguments": [
-        {
-          "foundSignupDate": ""
-        }
-      ],
+      "outArguments": [],
+      "concurrentRequests" : 10,
       "url": "https://flysh.link/call/test", 
-      "verb": "POST"
+      "verb": "POST",
+      "body": "",
+      "header": "",
+      "format": "json",
+      "useJwt": false,
+      "retryCount" : 3, 
+      "retryDelay" : 10000,
+      "timeout": 10000
     }
   },
   "configurationArguments": { 		
@@ -81,15 +84,7 @@
 	            }
 	          }
       	],
-        "outArguments": [
-	          {
-	            "foundSignupDate": {
-	              "dataType": "Date",
-	              "direction": "out",
-	              "access": "visible"
-	            }
-	          }
-        ]
+        "outArguments": []
       }
     }
   }
