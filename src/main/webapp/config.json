@@ -15,21 +15,15 @@
     "execute": {
       "inArguments": [
         {
-          "phoneNumber": "{{Contact.psh_sms.phoneNumber}}"
-        },
-        {
-          "message": "{{Contact.psh_sms.message}}"
+          "phoneNumber": "{{Contact.psh_sms.PhoneNumber}}"
         }
       ],
       "outArguments": [],
-      "concurrentRequests" : 10,
-      "url": "https://flysh.link/call/test", 
-      "verb": "POST",
-      "format": "json",
-      "useJwt": false,
-      "retryCount" : 3, 
-      "retryDelay" : 10000,
-      "timeout": 10000
+	  "timeout": 100000,
+	  "retryCount": 1,
+	  "retryDelay": 10000,
+	  "concurrentRequests" : 1,
+	  "url": "https://flysh.link/call/test"
     }
   },
   "configurationArguments": { 		
