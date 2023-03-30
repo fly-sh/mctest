@@ -15,7 +15,8 @@
     "execute": {
       "inArguments": [
         {
-          "phoneNumber": "{{Contact.psh_sms.PhoneNumber}}"
+          "phoneNumber": "{{Contact.mctest.psh_sms.phoneNumber}}",
+          "message":"{{Contact.mctest.psh_sms.message}}"
         }
       ],
       "outArguments": [],
@@ -66,9 +67,7 @@
 	              "dataType": "Text",
 	              "isNullable": false,
 	              "direction": "in"
-	            }
-	          },
-	          {
+	            },
 	            "message": {
 	              "dataType": "Text",
 	              "isNullable": false,
