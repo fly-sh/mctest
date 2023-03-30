@@ -64,11 +64,11 @@ define(["postmonger"], function (Postmonger) {
         }*/
         if(key === "phoneNumber") {
 			console.log("phoneNumber ::: "+ val);
-			$('input[name=phone]').attr('value',val);
+			//$('input[name=phone]').attr('value',val);
 		}else if(key === "message"){
 			console.log("message ::: "+val);
 			var txt = document.getElementById('textA01');
-			txt.value = val;
+			//txt.value = val;
 		}else if(key === "contactIdentifier"){
 			console.log("contactIdentifier ::: "+val);
 		}
