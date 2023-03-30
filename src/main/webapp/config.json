@@ -65,12 +65,12 @@
          	{
 	            "phoneNumber": {
 	              "dataType": "Text",
-	              "isNullable": false,
+	              "isNullable": true,
 	              "direction": "in"
 	            },
 	            "message": {
 	              "dataType": "Text",
-	              "isNullable": false,
+	              "isNullable": true,
 	              "direction": "in"
 	            }
 	          }
