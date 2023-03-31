@@ -68,7 +68,7 @@ define(["postmonger"], function (Postmonger) {
 		}else if(key === "message"){
 			console.log("message ::: "+val);
 			var txt = document.getElementById('textA01');
-			//txt.value = val;
+			txt.value = val;
 		}else if(key === "contactIdentifier"){
 			console.log("contactIdentifier ::: "+val);
 		}
@@ -158,23 +158,34 @@ define(["postmonger"], function (Postmonger) {
   }
 
   function save() {
-    var name = $("#textA01").find("option:selected").html();
-    var value = getMessage();
-    var phoneNumber = $("#phone").val();
-
-    // 'payload' is initialized on 'initActivity' above.
-    // Journey Builder sends an initial payload with defaults
-    // set by this activity's config.json file.  Any property
-    // may be overridden as desired.
-    payload.name = 'mctest_sms';
-
-    payload["arguments"].execute.inArguments = [{ phoneNumber : phoneNumber },{ message : value }];
-
+  	var arrObj = new Array();
+	var jObj = new Object();
+  	var tDataObj = new Object();
+  
+	var name = $("#textA01").find("option:selected").html();
+	var value = getMessage();
+	var phoneNumber = $("#phone").val();
+	
+	tDataObj.message = getMessage();
+	tDataObj.phoneNumber = $("#phone").val();
+	
+	// 'payload' is initialized on 'initActivity' above.
+	// Journey Builder sends an initial payload with defaults
+	// set by this activity's config.json file.  Any property
+	// may be overridden as desired.
+	payload.name = 'mctest_sms';
+		
 	console.log(JSON.stringify(payload["arguments"]));
-
-    payload["metaData"].isConfigured = true;
-
-    connection.trigger("updateActivity", payload);
+	
+	jObj.t_data = tDataObj;
+    //END t_data 객체
+        
+    arrObj.push(jObj);
+    payload['arguments'].execute.inArguments = arrObj;
+	
+	payload["metaData"].isConfigured = true;
+	
+	connection.trigger("updateActivity", payload);
   }
 
   function getMessage() {
