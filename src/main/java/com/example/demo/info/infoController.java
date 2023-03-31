@@ -23,8 +23,9 @@ public class infoController {
 
 	@RequestMapping(value="/test", method = {RequestMethod.POST})
 	public String test(@RequestBody CallModel infoVO) {
-		System.out.println("infoVO :: "+infoVO.toString());
-		System.out.println("/call/test call success");
+		
+		
+		System.out.println("/call/test call success :: "+infoVO.getPhoneNumber()+"|||"+infoVO.getMessage());
 		return "result 200";
 	}
 	@RequestMapping(value="/save", method = {RequestMethod.POST})
