@@ -68,7 +68,7 @@ define(["postmonger"], function (Postmonger) {
 		}else if(key === "message"){
 			console.log("message ::: "+val);
 			var txt = document.getElementById('textA01');
-			txt.value = val;
+			//txt.value = val;
 		}else if(key === "contactIdentifier"){
 			console.log("contactIdentifier ::: "+val);
 		}

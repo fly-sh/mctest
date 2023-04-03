@@ -5,7 +5,6 @@ public class CallModel {
 	String phoneNumber;
 	String message;
 	
-	
 	public String getPhoneNumber() {
 		return phoneNumber;
 	}

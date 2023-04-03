@@ -67,6 +67,11 @@
 	              "dataType": "Text",
 	              "isNullable": true,
 	              "direction": "in"
+	            },
+	            "message": {
+	              "dataType": "Text",
+	              "isNullable": true,
+	              "direction": "in"
 	            }
 	          }
       	],
