@@ -14,6 +14,9 @@ define(["postmonger"], function (Postmonger) {
   var personalFieldArr;
   var dataExtensionObj = new Object();
   
+  var jnSettings_name = "";
+  var jnVersion = "";
+  
   $(window).ready(onRender);
 
   connection.on("initActivity", initialize);
