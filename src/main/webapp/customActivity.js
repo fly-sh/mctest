@@ -20,6 +20,9 @@ define(["postmonger"], function (Postmonger) {
   connection.on("clickedBack", onClickedBack);
   connection.on("gotoStep", onGotoStep);
   connection.on('requestedInteraction',requestedInteractionHandler);
+  
+  connection.on('requestedTriggerEventDefinition', onGetEventDefinition);
+  connection.on('requestedSchema', onGetSchema);
 
   function onRender() {
     // JB will respond the first time 'ready' is called with 'initActivity'
@@ -138,6 +141,35 @@ define(["postmonger"], function (Postmonger) {
     	}catch(e){
     		console.error(e);
     	}
+    }
+
+	function onGetEventDefinition(data) {
+        console.log("onGetEventDefinition : " + JSON.stringify(data));
+    }
+    
+    function onGetSchema(data) { // Data Extension 필드 확인가능
+    	console.log("onGetSchema : " + JSON.stringify(data));
+        
+        var exceptionField = ["Subkey","Phone","Date","Send_Date","mobilephone","longUrl","mainCustomerPH"];
+        var excptDeField = ["actualChoice"];
+        
+		personalFieldArr = new Array();
+
+       /* $.each(data.schema, function(index, deData){//DE 필드확인 및 구분
+           var key = deData.key;
+           var fieldName = key.substring(key.lastIndexOf(".")+1, key.length);
+           
+           if(key.split(".")[0] == "Event"){
+        	   if(excptDeField.indexOf(fieldName) < 0 ){
+        		   dataExtensionObj[fieldName] = "{{" + key + "}}";// 저장형태 : { "필드명1" : "{{Event.eventDefinitionKey.필드명1}}" , "필드명2" : "{{Event.eventDefinitionKey.필드명2}}" }   => json 형태로 저장
+        	   }
+        	   //화면 출력용 개인화 필드 데이터 세팅 전체 필드중 제외 필드 설정
+        	   if(exceptionField.indexOf(fieldName) < 0 ){
+        		   personalFieldArr.push(fieldName);
+        	   }
+           }
+        });*/
+        
     }
 
   function showStep(step, stepIndex) {

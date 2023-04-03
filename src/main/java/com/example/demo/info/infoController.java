@@ -31,9 +31,6 @@ public class infoController {
 		System.out.println("infoVO.get(\"keyValue\") :: "+infoVO.get("keyValue"));
 		System.out.println("infoVO.get(\"inArguments\") :: "+infoVO.get("inArguments"));
 		
-		HashMap<String, Object> inArguments = (HashMap)infoVO.get("inArguments") ;
-		System.out.println("phoneNumber : " + inArguments.get("phoneNumber")) ;
-		System.out.println("message : " + inArguments.get("message")) ;
 		
 		return "result 200";
 	}
