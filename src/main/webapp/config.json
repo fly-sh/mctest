@@ -18,7 +18,7 @@
           "phoneNumber": "{{Event.__EventDefinitionKey__.phoneNumber}}"
         },
         {
-		  "message":""
+		  "message":"{{Event.__EventDefinitionKey__.message}}"
 		}
       ],
       "outArguments": [],
