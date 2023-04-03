@@ -15,10 +15,10 @@
     "execute": {
       "inArguments": [
         {
-          "phoneNumber": "{{Contact.mctest.psh_sms.phoneNumber}}"
+          "phoneNumber": "{{Event.__EventDefinitionKey__.phoneNumber}}"
         },
         {
-		  "message":"{{Contact.mctest.psh_sms.message}}"
+		  "message":"{{Event.__EventDefinitionKey__.message}}"
 		}
       ],
       "outArguments": [],

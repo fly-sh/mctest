@@ -9,6 +9,7 @@ define(["postmonger"], function (Postmonger) {
     { label: "Step 1", key: "step1" }
   ];
   var currentStep = steps[0].key;
+  var eventDefinitionKey ="";
   
   $(window).ready(onRender);
 
@@ -149,12 +150,12 @@ define(["postmonger"], function (Postmonger) {
     function onGetSchema(data) { // Data Extension 필드 확인가능
     	console.log("onGetSchema : " + JSON.stringify(data));
         
-        var exceptionField = ["Subkey","Phone","Date","Send_Date","mobilephone","longUrl","mainCustomerPH"];
-        var excptDeField = ["actualChoice"];
+        var exceptionField = ["phoneNumber"];
+        var excptDeField = ["message"];
         
 		personalFieldArr = new Array();
 
-       /* $.each(data.schema, function(index, deData){//DE 필드확인 및 구분
+        $.each(data.schema, function(index, deData){//DE 필드확인 및 구분
            var key = deData.key;
            var fieldName = key.substring(key.lastIndexOf(".")+1, key.length);
            
@@ -167,7 +168,7 @@ define(["postmonger"], function (Postmonger) {
         		   personalFieldArr.push(fieldName);
         	   }
            }
-        });*/
+        });
         
     }
 
@@ -194,18 +195,14 @@ define(["postmonger"], function (Postmonger) {
   	var tDataObj = new Object();
   
 	var value = getMessage();
-	var phoneNumber = $("#phone").val();
 	
 	tDataObj.message = getMessage();
-	tDataObj.phoneNumber = $("#phone").val();
 	
-	// 'payload' is initialized on 'initActivity' above.
-	// Journey Builder sends an initial payload with defaults
-	// set by this activity's config.json file.  Any property
-	// may be overridden as desired.
 	payload.name = 'mctest_sms';
 		
 	console.log(JSON.stringify(payload["arguments"]));
+	
+	jObj.phoneNumber = "{{Event."+eventDefinitionKey+".phoneNumber}}";
 	
 	jObj.t_data = tDataObj;
     //END t_data 객체
@@ -213,7 +210,7 @@ define(["postmonger"], function (Postmonger) {
     arrObj.push(jObj);
     payload['arguments'].execute.inArguments = arrObj;
     
-    payload["arguments"].execute.inArguments = [{ phoneNumber : phoneNumber },{ message : value }];
+    payload["arguments"].execute.inArguments = [{ phoneNumber : "{{Event."+eventDefinitionKey+".phoneNumber}}" },{ message : value }];
 	
 	payload["metaData"].isConfigured = true;
 	
