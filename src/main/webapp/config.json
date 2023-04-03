@@ -21,9 +21,7 @@
 		  "message":"{{Contact.mctest.psh_sms.message}}"
 		}
       ],
-      "outArguments": [{
-		  "message":"{{Contact.mctest.psh_sms.message}}"
-		}],
+      "outArguments": [],
 	  "timeout": 100000,
 	  "retryCount": 1,
 	  "retryDelay": 10000,
@@ -81,15 +79,7 @@
 	            }
 			  }
       	],
-        "outArguments": [
-			{
-			  	"message": {
-	              "dataType": "Text",
-	              "isNullable": true,
-	              "direction": "in"
-	            }
-			}
-		]
+        "outArguments": []
       }
     }
   }
