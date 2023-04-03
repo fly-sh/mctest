@@ -27,6 +27,7 @@ public class infoController {
 		
 		
 		System.out.println("/call/test call success :: ");
+		System.out.println("infoVO :: "+infoVO);
 		System.out.println("infoVO.get(\"mode\") :: "+infoVO.get("mode"));
 		System.out.println("infoVO.get(\"keyValue\") :: "+infoVO.get("keyValue"));
 		System.out.println("infoVO.get(\"inArguments\") :: "+infoVO.get("inArguments"));

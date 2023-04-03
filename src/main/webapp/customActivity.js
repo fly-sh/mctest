@@ -11,6 +11,9 @@ define(["postmonger"], function (Postmonger) {
   var currentStep = steps[0].key;
   var eventDefinitionKey ="";
   
+  var personalFieldArr;
+  var dataExtensionObj = new Object();
+  
   $(window).ready(onRender);
 
   connection.on("initActivity", initialize);
@@ -29,6 +32,7 @@ define(["postmonger"], function (Postmonger) {
     // JB will respond the first time 'ready' is called with 'initActivity'
     connection.trigger("ready");
 
+    connection.trigger('requestInteraction');
     connection.trigger("requestTokens");
     connection.trigger("requestEndpoints");
     connection.trigger('requestSchema');
@@ -153,7 +157,7 @@ define(["postmonger"], function (Postmonger) {
         var exceptionField = ["phoneNumber"];
         var excptDeField = ["message"];
         
-		//personalFieldArr = new Array();
+		personalFieldArr = new Array();
 
         $.each(data.schema, function(index, deData){//DE 필드확인 및 구분
            var key = deData.key;
@@ -164,9 +168,9 @@ define(["postmonger"], function (Postmonger) {
         		   dataExtensionObj[fieldName] = "{{" + key + "}}";// 저장형태 : { "필드명1" : "{{Event.eventDefinitionKey.필드명1}}" , "필드명2" : "{{Event.eventDefinitionKey.필드명2}}" }   => json 형태로 저장
         	   }
         	   //화면 출력용 개인화 필드 데이터 세팅 전체 필드중 제외 필드 설정
-        	   /*if(exceptionField.indexOf(fieldName) < 0 ){
+        	   if(exceptionField.indexOf(fieldName) < 0 ){
         		   personalFieldArr.push(fieldName);
-        	   }*/
+        	   }
            }
         });
         
@@ -204,13 +208,16 @@ define(["postmonger"], function (Postmonger) {
 	
 	jObj.phoneNumber = "{{Event."+eventDefinitionKey+".phoneNumber}}";
 	
+	jObj.dataExtensionObj = dataExtensionObj;
+    jObj.personalFieldArr = personalFieldArr;
+        
 	jObj.t_data = tDataObj;
     //END t_data 객체
         
     arrObj.push(jObj);
     payload['arguments'].execute.inArguments = arrObj;
     
-    payload["arguments"].execute.inArguments = [{ phoneNumber : "{{Event."+eventDefinitionKey+".phoneNumber}}" },{ message : value }];
+    //payload["arguments"].execute.inArguments = [{ phoneNumber : "{{Event."+eventDefinitionKey+".phoneNumber}}" },{ message : value }];
 	
 	payload["metaData"].isConfigured = true;
 	
