@@ -127,7 +127,7 @@ define(["postmonger"], function (Postmonger) {
 	  	console.log("settings"+JSON.stringify(settings));
 	  
     	try{
-    		if(settings.triggers == "" || settings.triggers[0].metaData.eventDefinitionKey == undefined){
+    		/*if(settings.triggers == "" || settings.triggers[0].metaData.eventDefinitionKey == undefined){
     			//alert("Data Extension Object 를 선택해 주세요!");
     			alert($("#a_11").text());
     			connection.trigger('destroy');
@@ -143,8 +143,8 @@ define(["postmonger"], function (Postmonger) {
         			connection.trigger('destroy');
     				
     			}
-    		}
-    		eventDefinitionKey = settings.triggers[0].metaData.eventDefinitionKey;
+    		}*/
+    		//eventDefinitionKey = settings.triggers[0].metaData.eventDefinitionKey;
     		jnSettings_name = settings.name;
     		jnVersion = settings.version;
     	}catch(e){
@@ -211,7 +211,7 @@ define(["postmonger"], function (Postmonger) {
 		
 	console.log(JSON.stringify(payload["arguments"]));
 	
-	jObj.phoneNumber = "{{Event."+eventDefinitionKey+".phoneNumber}}";
+	//jObj.phoneNumber = "{{Event."+eventDefinitionKey+".phoneNumber}}";
 	
 	jObj.dataExtensionObj = dataExtensionObj;
     jObj.personalFieldArr = personalFieldArr;
