@@ -36,6 +36,7 @@ public class infoController {
 		System.out.println("infoVO.get(\"inArguments\") :: "+infoVO.get("inArguments"));
 		
 		JSONObject json =  new JSONObject(infoVO);
+		System.out.println("json :: "+json);
 		System.out.println("dataExtensionObj ::::: "+json.get("dataExtensionObj"));
 		System.out.println("t_data :::: "+json.get("t_data"));
 		
