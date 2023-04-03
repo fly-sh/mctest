@@ -124,6 +124,8 @@ define(["postmonger"], function (Postmonger) {
   }
   
   function requestedInteractionHandler(settings){
+	  	console.log("settings"+settings);
+	  
     	try{
     		if(settings.triggers == "" || settings.triggers[0].metaData.eventDefinitionKey == undefined){
     			//alert("Data Extension Object 를 선택해 주세요!");
