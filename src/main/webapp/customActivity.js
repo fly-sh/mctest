@@ -124,7 +124,7 @@ define(["postmonger"], function (Postmonger) {
   }
   
   function requestedInteractionHandler(settings){
-	  	console.log("settings"+settings);
+	  	console.log("settings"+JSON.stringify(settings));
 	  
     	try{
     		if(settings.triggers == "" || settings.triggers[0].metaData.eventDefinitionKey == undefined){
