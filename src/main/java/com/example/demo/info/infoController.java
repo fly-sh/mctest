@@ -35,10 +35,9 @@ public class infoController {
 		System.out.println("infoVO.get(\"keyValue\") :: "+infoVO.get("keyValue"));
 		System.out.println("infoVO.get(\"inArguments\") :: "+infoVO.get("inArguments"));
 		
-		HashMap inArgumentsMap = (HashMap)infoVO.get("inArguments");
-		
-		System.out.println("inArgumentsMap ::: "+inArgumentsMap);
-		
+		JSONObject json =  new JSONObject(infoVO);
+		System.out.println("dataExtensionObj ::::: "+json.get("dataExtensionObj"));
+		System.out.println("t_data :::: "+json.get("t_data"));
 		
 		// megabird api 호출
 		String serviceURL = "https://api.megabird.co.kr:8080";
