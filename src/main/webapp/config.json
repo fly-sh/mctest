@@ -15,11 +15,15 @@
     "execute": {
       "inArguments": [
         {
-          "phoneNumber": "{{Contact.mctest.psh_sms.phoneNumber}}",
-          "message":"{{Contact.mctest.psh_sms.message}}"
-        }
+          "phoneNumber": "{{Contact.mctest.psh_sms.phoneNumber}}"
+        },
+        {
+		  "message":"{{Contact.mctest.psh_sms.message}}"
+		}
       ],
-      "outArguments": [],
+      "outArguments": [{
+		  "message":"{{Contact.mctest.psh_sms.message}}"
+		}],
 	  "timeout": 100000,
 	  "retryCount": 1,
 	  "retryDelay": 10000,
@@ -67,15 +71,25 @@
 	              "dataType": "Text",
 	              "isNullable": true,
 	              "direction": "in"
-	            },
-	            "message": {
+	            }
+	          },
+	          {
+			  	"message": {
 	              "dataType": "Text",
 	              "isNullable": true,
 	              "direction": "in"
 	            }
-	          }
+			  }
       	],
-        "outArguments": []
+        "outArguments": [
+			{
+			  	"message": {
+	              "dataType": "Text",
+	              "isNullable": true,
+	              "direction": "in"
+	            }
+			}
+		]
       }
     }
   }

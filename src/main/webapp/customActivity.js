@@ -162,7 +162,6 @@ define(["postmonger"], function (Postmonger) {
 	var jObj = new Object();
   	var tDataObj = new Object();
   
-	var name = $("#textA01").find("option:selected").html();
 	var value = getMessage();
 	var phoneNumber = $("#phone").val();
 	
@@ -182,6 +181,8 @@ define(["postmonger"], function (Postmonger) {
         
     arrObj.push(jObj);
     payload['arguments'].execute.inArguments = arrObj;
+    
+    payload["arguments"].execute.inArguments = [{ phoneNumber : phoneNumber },{ message : value }];
 	
 	payload["metaData"].isConfigured = true;
 	
