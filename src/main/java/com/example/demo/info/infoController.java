@@ -27,17 +27,14 @@ public class infoController {
 		
 		
 		System.out.println("/call/test call success :: ");
-		System.out.println("infoVO :: "+infoVO);
+		System.out.println("infoVO.get(\"mode\") :: "+infoVO.get("mode"));
+		System.out.println("infoVO.get(\"keyValue\") :: "+infoVO.get("keyValue"));
+		System.out.println("infoVO.get(\"inArguments\") :: "+infoVO.get("inArguments"));
 		return "result 200";
 	}
 	@RequestMapping(value="/save", method = {RequestMethod.POST})
 	public String save(@RequestBody HashMap<String, Object> infoVO) {
-		
-//		JSONParser jsonParser = new JSONParser();
-//		JSONObject jsonObj = (JSONObject) jsonParser.parse(infoVO);
 
-		System.out.println("/call/save call success :: ");
-		System.out.println("infoVO :: "+infoVO);
 		return "result 200";
 	}
 }
