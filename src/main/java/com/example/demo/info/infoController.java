@@ -23,10 +23,11 @@ import com.fasterxml.jackson.annotation.JsonAlias;
 public class infoController {
 
 	@RequestMapping(value="/test", method = {RequestMethod.POST})
-	public String test(@RequestBody CallModel infoVO) {
+	public String test(@RequestBody HashMap<String, Object> infoVO) {
 		
 		
-		System.out.println("/call/test call success :: "+infoVO.getPhoneNumber()+"|||"+infoVO.getMessage());
+		System.out.println("/call/test call success :: ");
+		System.out.println("infoVO :: "+infoVO);
 		return "result 200";
 	}
 	@RequestMapping(value="/save", method = {RequestMethod.POST})
