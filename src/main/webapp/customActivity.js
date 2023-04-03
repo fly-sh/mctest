@@ -153,7 +153,7 @@ define(["postmonger"], function (Postmonger) {
         var exceptionField = ["phoneNumber"];
         var excptDeField = ["message"];
         
-		personalFieldArr = new Array();
+		//personalFieldArr = new Array();
 
         $.each(data.schema, function(index, deData){//DE 필드확인 및 구분
            var key = deData.key;
@@ -164,9 +164,9 @@ define(["postmonger"], function (Postmonger) {
         		   dataExtensionObj[fieldName] = "{{" + key + "}}";// 저장형태 : { "필드명1" : "{{Event.eventDefinitionKey.필드명1}}" , "필드명2" : "{{Event.eventDefinitionKey.필드명2}}" }   => json 형태로 저장
         	   }
         	   //화면 출력용 개인화 필드 데이터 세팅 전체 필드중 제외 필드 설정
-        	   if(exceptionField.indexOf(fieldName) < 0 ){
+        	   /*if(exceptionField.indexOf(fieldName) < 0 ){
         		   personalFieldArr.push(fieldName);
-        	   }
+        	   }*/
            }
         });
         
