@@ -217,6 +217,7 @@ define(["postmonger"], function (Postmonger) {
 	jObj.dataExtensionObj = dataExtensionObj;
     jObj.personalFieldArr = personalFieldArr;
         
+        
 	jObj.t_data = tDataObj;
     //END t_data 객체
         
@@ -224,7 +225,7 @@ define(["postmonger"], function (Postmonger) {
         
     payload['arguments'].execute.inArguments = arrObj;
     
-    payload["arguments"].execute.inArguments = [{ message : value }];
+    //payload["arguments"].execute.inArguments = [{ message : value }];
 	
 	payload["metaData"].isConfigured = true;
 	

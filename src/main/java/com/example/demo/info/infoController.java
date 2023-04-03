@@ -25,7 +25,6 @@ public class infoController {
 	@RequestMapping(value="/test", method = {RequestMethod.POST})
 	public String test(@RequestBody HashMap<String, Object> infoVO) {
 		
-		
 		System.out.println("/call/test call success :: ");
 		System.out.println("infoVO :: "+infoVO);
 		System.out.println("infoVO.get(\"mode\") :: "+infoVO.get("mode"));
