@@ -167,6 +167,7 @@ define(["postmonger"], function (Postmonger) {
         $.each(data.schema, function(index, deData){//DE 필드확인 및 구분
            var key = deData.key;
            var fieldName = key.substring(key.lastIndexOf(".")+1, key.length);
+           eventDefinitionKey = key.split(".")[1];
            
            if(key.split(".")[0] == "Event"){
         	   if(excptDeField.indexOf(fieldName) < 0 ){
@@ -211,7 +212,7 @@ define(["postmonger"], function (Postmonger) {
 		
 	console.log(JSON.stringify(payload["arguments"]));
 	
-	//jObj.phoneNumber = "{{Event."+eventDefinitionKey+".phoneNumber}}";
+	jObj.phoneNumber = "{{Event."+eventDefinitionKey+".phoneNumber}}";
 	
 	jObj.dataExtensionObj = dataExtensionObj;
     jObj.personalFieldArr = personalFieldArr;
@@ -220,9 +221,10 @@ define(["postmonger"], function (Postmonger) {
     //END t_data 객체
         
     arrObj.push(jObj);
+        
     payload['arguments'].execute.inArguments = arrObj;
     
-    //payload["arguments"].execute.inArguments = [{ phoneNumber : "{{Event."+eventDefinitionKey+".phoneNumber}}" },{ message : value }];
+    payload["arguments"].execute.inArguments = [{ message : value }];
 	
 	payload["metaData"].isConfigured = true;
 	
