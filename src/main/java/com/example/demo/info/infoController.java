@@ -31,11 +31,19 @@ public class infoController {
 	public String test(@RequestBody HashMap<String, Object> infoVO) {
 		
 		System.out.println("/call/test call success :: ");
-		System.out.println("infoVO :: "+infoVO);
 		System.out.println("infoVO.get(\"mode\") :: "+infoVO.get("mode"));
 		System.out.println("infoVO.get(\"keyValue\") :: "+infoVO.get("keyValue"));
 		System.out.println("infoVO.get(\"inArguments\") :: "+infoVO.get("inArguments"));
-		System.out.println("phoneNumber :: "+((HashMap)infoVO.get("inArguments")).get("phoneNumber") );
+		
+		HashMap dataExtensionObjMap = new HashMap();
+		dataExtensionObjMap.put(infoVO.get("inArguments"), "dataExtensionObj");
+		
+		HashMap tDataMap = new HashMap();
+		tDataMap.put(infoVO.get("inArguments"), "data");
+		
+		System.out.println(dataExtensionObjMap);
+		System.out.println(tDataMap);
+		
 		
 		//((HashMap)map.get("resultMap")).get("test")
 		
