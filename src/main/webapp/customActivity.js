@@ -74,6 +74,7 @@ define(["postmonger"], function (Postmonger) {
         }*/
         if(key === "phoneNumber") {
 			console.log("phoneNumber ::: "+ val);
+			//$('input[name=phone]').attr('value',val);
 		}else if(key === "message"){
 			console.log("message ::: "+val);
 			var txt = document.getElementById('textA01');
@@ -122,13 +123,34 @@ define(["postmonger"], function (Postmonger) {
     connection.trigger("ready");
   }
   
-  	function requestedInteractionHandler(settings){
-  		console.log("settings"+JSON.stringify(settings));
+  function requestedInteractionHandler(settings){
+	  	console.log("settings"+JSON.stringify(settings));
 	  
-		jnSettings_name = settings.name;
-		jnVersion = settings.version;
-	
-	}
+    	try{
+    		/*if(settings.triggers == "" || settings.triggers[0].metaData.eventDefinitionKey == undefined){
+    			//alert("Data Extension Object 를 선택해 주세요!");
+    			alert($("#a_11").text());
+    			connection.trigger('destroy');
+    		}else{
+    			var chkDeConnArr = settings.triggers[0].metaData.eventDefinitionKey.split("-");
+    			if(chkDeConnArr[0] != "DEAudience" && chkDeConnArr[0] != "AutomationAud" && chkDeConnArr[0] != "APIEvent"
+    				&& chkDeConnArr[0] != "SalesforceObjectTriggerV2" && chkDeConnArr[0] != "CloudPagesSma" 
+    					&& chkDeConnArr[0] != "DateEvent" && chkDeConnArr[0] != "ContactAudience"
+    						&& settings.triggers[0].metaData.eventDefinitionKey.indexOf("SalesforceObj") != 0){
+    				
+    				//alert("Data Extension Object 를 선택해 주세요!");
+        			alert($("#a_11").text());
+        			connection.trigger('destroy');
+    				
+    			}
+    		}*/
+    		//eventDefinitionKey = settings.triggers[0].metaData.eventDefinitionKey;
+    		jnSettings_name = settings.name;
+    		jnVersion = settings.version;
+    	}catch(e){
+    		console.error(e);
+    	}
+    }
 
 	function onGetEventDefinition(data) {
         console.log("onGetEventDefinition : " + JSON.stringify(data));
