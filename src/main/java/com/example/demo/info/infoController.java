@@ -32,19 +32,12 @@ public class infoController {
 		
 		System.out.println("/call/test call success :: ");
 		
-		JSONParser jsonParser = new JSONParser();
-		//resultJsonObj = (JSONObject) jsonParser.parse(infoVO);
+		HashMap<String, Object> info = new HashMap<String, Object>();
 		
-		JSONObject resultJsonObj = (JSONObject) infoVO.get("inArguments");
+		info.put("inArguments", infoVO.get("infoVO"));
 		
-		JSONArray resultJsonArray1 = new JSONArray(); //깊이 2에 존재하는 제이슨 배열을 가져올 객체
-		JSONArray resultJsonArray2 = new JSONArray(); //깊이 2에 존재하는 제이슨 배열을 가져올 객체
-		
-		resultJsonArray1 = (JSONArray) resultJsonObj.get("dataExtensionObj"); 
-		resultJsonArray2 = (JSONArray) resultJsonObj.get("t_data"); 
-		
-		System.out.println("resultJsonArray1 :: "+resultJsonArray1);
-		System.out.println("resultJsonArray2 :: "+resultJsonArray2);
+		System.out.println("info.get(\"phoneNumber\") :: "+info.get("phoneNumber"));
+		System.out.println("info.get(\"t_data\") :: "+info.get("t_data"));
 		
 		// megabird api 호출
 		String serviceURL = "https://api.megabird.co.kr:8080";
