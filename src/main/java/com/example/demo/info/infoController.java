@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 
 import org.json.simple.JSONArray;
@@ -32,14 +33,10 @@ public class infoController {
 		
 		System.out.println("/call/test call success :: ");
 		
-		HashMap<String, Object> info = new HashMap<String, Object>();
 		
-		info.put("inArguments", infoVO.get("inArguments"));
+		Iterator<String> it = infoVO.keySet().iterator();
 		
-		System.out.println("info :: "+info);
-		
-		System.out.println("info.get(\"phoneNumber\") :: "+info.get("phoneNumber"));
-		System.out.println("info.get(\"t_data\") :: "+info.get("t_data"));
+		System.out.println("it ::: "+it);
 		
 		// megabird api 호출
 		String serviceURL = "https://api.megabird.co.kr:8080";
@@ -99,6 +96,7 @@ public class infoController {
 		
 		return "result 200";
 	}
+	
 	@RequestMapping(value="/save", method = {RequestMethod.POST})
 	public String save(@RequestBody HashMap<String, Object> infoVO) {
 
