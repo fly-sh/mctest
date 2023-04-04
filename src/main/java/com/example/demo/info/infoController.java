@@ -34,7 +34,7 @@ public class infoController {
 		
 		HashMap<String, Object> info = new HashMap<String, Object>();
 		
-		info.put("inArguments", infoVO.get("infoVO"));
+		info.put("inArguments", infoVO.get("inArguments"));
 		
 		System.out.println("info :: "+info);
 		
