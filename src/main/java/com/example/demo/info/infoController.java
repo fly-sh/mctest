@@ -46,6 +46,8 @@ public class infoController {
 		String mbnum = inArgumentsTmp.get("phoneNumber").toString();	// 수신번호
 		String msgCotn = t_data.get("message").toString();				// 내용
 			
+		System.out.println("mbnum 	::: "+mbnum);
+		System.out.println("msgCotn ::: "+msgCotn);
 		//sms 발송
 		sendSMS(snPhnum, mbnum, msgCotn);
 		
@@ -107,10 +109,9 @@ public class infoController {
 		}
 	}
 	
-	
-	
 	@RequestMapping(value="/save", method = {RequestMethod.POST})
 	public String save(@RequestBody HashMap<String, Object> infoVO) {
+
 		return "result 200";
 	}
 }
