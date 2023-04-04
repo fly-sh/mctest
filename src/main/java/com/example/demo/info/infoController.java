@@ -31,14 +31,20 @@ public class infoController {
 	public String test(@RequestBody HashMap<String, Object> infoVO) {
 		
 		System.out.println("/call/test call success :: ");
-		System.out.println("infoVO.get(\"mode\") :: "+infoVO.get("mode"));
-		System.out.println("infoVO.get(\"keyValue\") :: "+infoVO.get("keyValue"));
-		System.out.println("infoVO.get(\"inArguments\") :: "+infoVO.get("inArguments"));
 		
-		JSONObject json =  new JSONObject(infoVO);
-		System.out.println("json :: "+json);
-		System.out.println("dataExtensionObj ::::: "+json.get("dataExtensionObj"));
-		System.out.println("t_data :::: "+json.get("t_data"));
+		JSONParser jsonParser = new JSONParser();
+		//resultJsonObj = (JSONObject) jsonParser.parse(infoVO);
+		
+		JSONObject resultJsonObj = (JSONObject) infoVO.get("inArguments");
+		
+		JSONArray resultJsonArray1 = new JSONArray(); //깊이 2에 존재하는 제이슨 배열을 가져올 객체
+		JSONArray resultJsonArray2 = new JSONArray(); //깊이 2에 존재하는 제이슨 배열을 가져올 객체
+		
+		resultJsonArray1 = (JSONArray) resultJsonObj.get("dataExtensionObj"); 
+		resultJsonArray2 = (JSONArray) resultJsonObj.get("t_data"); 
+		
+		System.out.println("resultJsonArray1 :: "+resultJsonArray1);
+		System.out.println("resultJsonArray2 :: "+resultJsonArray2);
 		
 		// megabird api 호출
 		String serviceURL = "https://api.megabird.co.kr:8080";
