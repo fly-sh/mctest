@@ -47,12 +47,7 @@ public class infoController {
 		String msgCotn = t_data.get("message").toString();				// 내용
 			
 		//sms 발송
-		try {
-			sendSMS(snPhnum, mbnum, msgCotn);
-		} catch (Exception e) {
-			System.out.println(e);
-			return e.toString();
-		}
+		sendSMS(snPhnum, mbnum, msgCotn);
 		
 		return "result 200";
 	}
@@ -105,7 +100,7 @@ public class infoController {
 				response.append(inputLine);
 			}
 			br.close();
-			//System.out.println(response.toString());
+			System.out.println(response.toString());
 			
 		} catch (Exception e) {
 			System.out.println(e);
