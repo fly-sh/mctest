@@ -78,37 +78,13 @@
 	    <div>
 	      <label>text</label>
 	    </div>
-	    <textarea id="textA01" name="textA01">
-	
-	    </textarea>
-	    <!--<button onclick="smsSend()">send</button> -->
+	    <textarea id="textA01" name="textA01"></textarea>
     </div>
   </div>
 
 
 <script type="text/javascript">
-  function smsSend() {
-
-    fetch("https://api.megabird.co.kr:8080/v1/openapi/sms/send", {
-      method : "POST",
-      headers : {
-        "Content-Type" : "application/json",
-        "Authorization" : "eyJhbGciOiJIUzM4NCJ9.eyJ0b2tlbkRpdiI6IjNyZCIsIm1lbWJlcklkIjoiNDc2YWRlYTE4NzVjNDI4ZGI3NGJmNjAwN2ZkYWM2MTUiLCJpc0FjY2Vzc1Rva2VuIjp0cnVlLCJpYXQiOjE2Nzc4MjcxNTksImV4cCI6MzIzMzAyNzE1OX0.j0YkDKb0ERHQiNulIaaj4EoCPYY5WvLTM0KQ6qNihLecGiZn912KC0NWFoeUM5cC"
-      },
-      body: JSON.stringify({
-            svcKndCd : "SMS",
-            msgCotn : $("#textA01").val(),
-            adIncluYn : "N",
-            snPhnum : "01020949987",
-            messageReceiverList : [{
-                mbnum : $("#phone").val()
-              }
-            ]
-      }),
-    }).then((response) => console.log(response));
-  }
   
-
 </script>
 </body>
 </html>

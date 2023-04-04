@@ -41,9 +41,6 @@ public class infoController {
 	    
 	    JSONObject inArgumentsTmp = (JSONObject)inArguments.get(0);
 		JSONObject t_data = (JSONObject)inArgumentsTmp.get("t_data");
-	    
-		System.out.println("/call/test call success :: "+inArgumentsTmp.get("phoneNumber"));
-		System.out.println("/call/test call success :: "+t_data.get("message"));
 		
 		String snPhnum = "01020949987"; //발신번호
 		
@@ -108,7 +105,7 @@ public class infoController {
 				response.append(inputLine);
 			}
 			br.close();
-			System.out.println(response.toString());
+			//System.out.println(response.toString());
 			
 		} catch (Exception e) {
 			System.out.println(e);
