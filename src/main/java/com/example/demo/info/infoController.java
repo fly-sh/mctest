@@ -30,7 +30,7 @@ import java.time.LocalDateTime;
 @RestController
 public class infoController {
 
-	@RequestMapping(value="/test", method = {RequestMethod.POST})
+	@RequestMapping(value="/send", method = {RequestMethod.POST})
 	public String test(@RequestBody String infoVO) throws ParseException{
 		
 		JSONParser parser = new JSONParser();
@@ -38,12 +38,11 @@ public class infoController {
 	    JSONObject json = (JSONObject) obj;
 		
 	    JSONArray inArguments = (JSONArray)json.get("inArguments");
-	    
 	    JSONObject inArgumentsTmp = (JSONObject)inArguments.get(0);
 		JSONObject t_data = (JSONObject)inArgumentsTmp.get("t_data");
 		
+		// 발신 정보 set
 		String snPhnum = "01020949987"; //발신번호
-		
 		String mbnum = inArgumentsTmp.get("phoneNumber").toString();	// 수신번호
 		String msgCotn = t_data.get("message").toString();				// 내용
 			
@@ -52,6 +51,7 @@ public class infoController {
 			sendSMS(snPhnum, mbnum, msgCotn);
 		} catch (Exception e) {
 			System.out.println(e);
+			return e.toString();
 		}
 		
 		return "result 200";
@@ -112,9 +112,10 @@ public class infoController {
 		}
 	}
 	
+	
+	
 	@RequestMapping(value="/save", method = {RequestMethod.POST})
 	public String save(@RequestBody HashMap<String, Object> infoVO) {
-
 		return "result 200";
 	}
 }
