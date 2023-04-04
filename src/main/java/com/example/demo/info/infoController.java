@@ -16,8 +16,6 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-import com.example.demo.info.model.inArguments;
-import com.example.demo.info.model.model;
 import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -47,9 +45,9 @@ public class infoController {
 		System.out.println("/call/test call success :: "+inArgumentsTmp.get("phoneNumber"));
 		System.out.println("/call/test call success :: "+t_data.get("message"));
 		
-		String snPhnum = "01020949987";
+		String snPhnum = "01020949987"; //발신번호
 		
-		String mbnum = inArgumentsTmp.get("phoneNumber").toString();	// 수싲번호
+		String mbnum = inArgumentsTmp.get("phoneNumber").toString();	// 수신번호
 		String msgCotn = t_data.get("message").toString();				// 내용
 			
 		//sms 발송
