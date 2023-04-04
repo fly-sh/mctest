@@ -36,6 +36,8 @@ public class infoController {
 		
 		info.put("inArguments", infoVO.get("infoVO"));
 		
+		System.out.println("info :: "+info);
+		
 		System.out.println("info.get(\"phoneNumber\") :: "+info.get("phoneNumber"));
 		System.out.println("info.get(\"t_data\") :: "+info.get("t_data"));
 		
