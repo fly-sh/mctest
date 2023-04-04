@@ -16,32 +16,44 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-import com.example.demo.info.model.CallModel;
+import com.example.demo.info.model.inArguments;
+import com.example.demo.info.model.model;
 import com.fasterxml.jackson.annotation.JsonAlias;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
+import java.time.LocalDateTime;
+
 
 @RequestMapping("/call")
 @RestController
 public class infoController {
 
 	@RequestMapping(value="/test", method = {RequestMethod.POST})
-	public String test(@RequestBody HashMap<String, Object> infoVO) {
+	public String test(@RequestBody String infoVO) throws ParseException{
 		
-		System.out.println("/call/test call success :: ");
+		JSONParser parser = new JSONParser();
+	    Object obj  = parser.parse(infoVO);
+	    JSONObject json = (JSONObject) obj;
 		
-		
-		Iterator<String> it = infoVO.keySet().iterator();
-		
-		System.out.println("it ::: "+it);
+	    JSONArray inArguments = (JSONArray)json.get("inArguments");
+	    
+	    JSONObject inArgumentsTmp = (JSONObject)inArguments.get(0);
+		JSONObject t_data = (JSONObject)inArgumentsTmp.get("t_data");
+	    
+		System.out.println("/call/test call success :: "+inArgumentsTmp.get("phoneNumber"));
+		System.out.println("/call/test call success :: "+t_data.get("message"));
 		
 		// megabird api 호출
 		String serviceURL = "https://api.megabird.co.kr:8080";
 		
 		String token = "eyJhbGciOiJIUzM4NCJ9.eyJ0b2tlbkRpdiI6IjNyZCIsIm1lbWJlcklkIjoiNDc2YWRlYTE4NzVjNDI4ZGI3NGJmNjAwN2ZkYWM2MTUiLCJpc0FjY2Vzc1Rva2VuIjp0cnVlLCJpYXQiOjE2Nzc4MjcxNTksImV4cCI6MzIzMzAyNzE1OX0.j0YkDKb0ERHQiNulIaaj4EoCPYY5WvLTM0KQ6qNihLecGiZn912KC0NWFoeUM5cC";
+		
+		String mbnum = inArgumentsTmp.get("phoneNumber").toString();
+		String msgCotn = t_data.get("message").toString();
 		
 //		try {
 //			String apiURL = serviceURL + "/api/v1/openapi/sms";
@@ -96,6 +108,7 @@ public class infoController {
 		
 		return "result 200";
 	}
+	
 	
 	@RequestMapping(value="/save", method = {RequestMethod.POST})
 	public String save(@RequestBody HashMap<String, Object> infoVO) {
