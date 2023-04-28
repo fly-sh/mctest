@@ -34,8 +34,8 @@ define(["postmonger"], function (Postmonger) {
 
   function onRender() {
 	  
-  	$('#step1').show();
-  	$('#step2').hide();
+  	$('#step1').hide();
+  	$('#step2').show();
     // JB will respond the first time 'ready' is called with 'initActivity'
     connection.trigger("ready");
 
