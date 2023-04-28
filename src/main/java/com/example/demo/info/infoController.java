@@ -29,6 +29,8 @@ import java.time.LocalDateTime;
 @RequestMapping("/call")
 @RestController
 public class infoController {
+	
+	String token = "eyJhbGciOiJIUzM4NCJ9.eyJ0b2tlbkRpdiI6IjNyZCIsIm1lbWJlcklkIjoiNDc2YWRlYTE4NzVjNDI4ZGI3NGJmNjAwN2ZkYWM2MTUiLCJpc0FjY2Vzc1Rva2VuIjp0cnVlLCJpYXQiOjE2Nzc4MjcxNTksImV4cCI6MzIzMzAyNzE1OX0.j0YkDKb0ERHQiNulIaaj4EoCPYY5WvLTM0KQ6qNihLecGiZn912KC0NWFoeUM5cC";
 
 	@RequestMapping(value="/send", method = {RequestMethod.POST})
 	public String test(@RequestBody String infoVO) throws ParseException{
@@ -40,6 +42,8 @@ public class infoController {
 	    JSONArray inArguments = (JSONArray)json.get("inArguments");
 	    JSONObject inArgumentsTmp = (JSONObject)inArguments.get(0);
 		JSONObject t_data = (JSONObject)inArgumentsTmp.get("t_data");
+		
+		
 		
 		// 발신 정보 set
 		String snPhnum = "01020949987"; //발신번호
@@ -57,8 +61,6 @@ public class infoController {
 	public void sendSMS(String snPhnum,String mbnum,String msgCotn) {
 		// megabird api 호출
 		String serviceURL = "https://api.megabird.co.kr:8080";
-		
-		String token = "eyJhbGciOiJIUzM4NCJ9.eyJ0b2tlbkRpdiI6IjNyZCIsIm1lbWJlcklkIjoiNDc2YWRlYTE4NzVjNDI4ZGI3NGJmNjAwN2ZkYWM2MTUiLCJpc0FjY2Vzc1Rva2VuIjp0cnVlLCJpYXQiOjE2Nzc4MjcxNTksImV4cCI6MzIzMzAyNzE1OX0.j0YkDKb0ERHQiNulIaaj4EoCPYY5WvLTM0KQ6qNihLecGiZn912KC0NWFoeUM5cC";
 		
 		try {
 			String apiURL = serviceURL + "/v1/openapi/sms/send";
@@ -107,6 +109,39 @@ public class infoController {
 		} catch (Exception e) {
 			System.out.println(e);
 		}
+	}
+	
+	public void getTemplate(String snPhnum,String mbnum,String msgCotn) {
+		
+		String serviceURL = "https://api.megabird.co.kr:8080";
+        // API 등록시에 생성한 토큰입력
+        
+        try {
+            String apiURL = serviceURL + "/v1/openapi/member/senderNumber";
+            URL url = new URL(apiURL);
+            HttpURLConnection con = (HttpURLConnection)url.openConnection();
+            con.setRequestMethod("GET");
+            con.setRequestProperty("Content-Type", "application/json");
+            con.setRequestProperty("Authorization", token);
+
+            int responseCode = con.getResponseCode();
+            BufferedReader br;
+            if(responseCode==200) { // 정상 호출
+                br = new BufferedReader(new InputStreamReader(con.getInputStream()));
+            } else {  // 에러 발생
+                br = new BufferedReader(new InputStreamReader(con.getErrorStream()));
+            }
+
+            String inputLine;
+            StringBuffer response = new StringBuffer();
+            while ((inputLine = br.readLine()) != null) {
+                response.append(inputLine);
+            }
+            br.close();
+            System.out.println(response.toString());
+        } catch (Exception e) {
+            System.out.println(e);
+        }
 	}
 	
 	@RequestMapping(value="/save", method = {RequestMethod.POST})
