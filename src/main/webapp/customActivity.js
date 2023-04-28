@@ -6,7 +6,8 @@ define(["postmonger"], function (Postmonger) {
   var lastStepEnabled = false;
   var steps = [
     // initialize to the same value as what's set in config.json for consistency
-    { label: "Step 1", key: "step1" }
+    { label: "Step 1", key: "step1" },
+    { label: "Step 2", key: "step2" }
   ];
   var currentStep = steps[0].key;
   var eventDefinitionKey ="";
@@ -32,6 +33,9 @@ define(["postmonger"], function (Postmonger) {
   connection.on('requestedSchema', onGetSchema);
 
   function onRender() {
+	  
+  	$('#step1').show();
+  	$('#step2').hide();
     // JB will respond the first time 'ready' is called with 'initActivity'
     connection.trigger("ready");
 
@@ -99,6 +103,15 @@ define(["postmonger"], function (Postmonger) {
 
   function onClickedNext() {
 	console.log("!!! next :::");
+	
+	if($("#tokenVal").val() == "" || $("#tokenVal").val() == null){
+     	//alert("발신번호를 선택해주세요.");
+		//alert($("#a_3").text());
+		//action_popup.alert($("#a_3").text());
+		connection.trigger('ready');
+     	return;
+     }
+	
 	
 	console.log("number : "+$("#phone").val());
 	console.log("text   : "+$("#textA01").val());

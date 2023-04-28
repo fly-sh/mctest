@@ -65,8 +65,9 @@
       margin: 3rem!important;
       justify-content: center!important;
       display: flex!important;
+      flex-direction: column;
     }
-    #div2 {
+    .div2 {
 	    width: 300px;
 	    height: 100%;
 	    display: flex;
@@ -91,8 +92,12 @@
 </form>
 
   <div id="div1">
-  	<div id="div2">
-		  <input type="tel" id="phone" name="phone" required placeholder="00*-000*-0000" pattern="[0-9]{2,3}-[0-9]{3,4}-[0-9]{3,4}"
+  	<div id="step1" class="div2">
+		  <span>Token</span>
+		  <input type="text" id="tokenVal">
+    </div>
+    <div id="step2" class="div2">
+		<input type="tel" id="phone" name="phone" required placeholder="00*-000*-0000" pattern="[0-9]{2,3}-[0-9]{3,4}-[0-9]{3,4}"
 	           minlength="9" maxlength="13" size="30" hidden="true">
 	           <div>
 				   <label hidden="true">템플릿 선택</label>
@@ -104,7 +109,7 @@
 				   <label>text</label>
 			   </div>
 		   <textarea id="textA01" name="textA01" placeholder="내용 입력"></textarea>
-    </div>
+	</div>
   </div>
 
 
