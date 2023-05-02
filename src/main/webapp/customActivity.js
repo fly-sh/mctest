@@ -111,7 +111,21 @@ define(["postmonger"], function (Postmonger) {
 	console.log("number : "+$("#phone").val());
 	console.log("text   : "+$("#textA01").val());
 	  
-	save();
+  	$(".div2").hide();	
+	switch(currentStep.key) {
+		
+	   case 'step1' :
+		   $('#step2').show();
+		   connection.trigger('updateButton', {
+                button: 'done',
+                enabled: true
+            });
+       case 'step2' :
+		   save();  
+	   break;
+   }  
+	  
+	
     /*if (
       (currentStep.key === "step3" && steps[3].active === false) ||
       currentStep.key === "step4"
@@ -204,8 +218,14 @@ define(["postmonger"], function (Postmonger) {
 			   $('#step1').show();
 			   connection.trigger('updateButton', {
                     button: 'next',
-                    enabled: Boolean(getMessage())
+                    enabled: true
                 });
+           case 'step2' :
+			   $('#step2').show();
+			   connection.trigger('updateButton', {
+                    button: 'done',
+                    enabled: Boolean(getMessage())
+                });     
 		   break;
    }
 /*    connection.trigger("updateButton", {
