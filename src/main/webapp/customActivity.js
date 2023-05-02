@@ -6,7 +6,8 @@ define(["postmonger"], function (Postmonger) {
   var lastStepEnabled = false;
   var steps = [
     // initialize to the same value as what's set in config.json for consistency
-    { label: "Step 1", key: "step1" }
+    { label: "Step 1", key: "step1" },
+    { label: "Step 2", key: "step2" }
   ];
   var currentStep = steps[0].key;
   var eventDefinitionKey ="";
@@ -16,6 +17,8 @@ define(["postmonger"], function (Postmonger) {
   
   var jnSettings_name = "";
   var jnVersion = "";
+  
+  var savedMsg = "";
   
   $(window).ready(onRender);
 
@@ -78,7 +81,9 @@ define(["postmonger"], function (Postmonger) {
 		}else if(key === "message"){
 			console.log("message ::: "+val);
 			var txt = document.getElementById('textA01');
-			txt.value = val;
+			
+			txt.value = tDataObj.message
+			//txt.value = val;
 		}else if(key === "contactIdentifier"){
 			console.log("contactIdentifier ::: "+val);
 		}
@@ -199,11 +204,12 @@ define(["postmonger"], function (Postmonger) {
           });
   }
 
-  function save() {
-  	var arrObj = new Array();
+	var arrObj = new Array();
 	var jObj = new Object();
   	var tDataObj = new Object();
-  
+  	
+  function save() {
+  	
 	var value = getMessage();
 	
 	tDataObj.message = getMessage();
