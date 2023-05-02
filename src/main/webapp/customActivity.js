@@ -118,7 +118,7 @@ define(["postmonger"], function (Postmonger) {
 	   case 'step1' :
 		   $('#step2').show();
 		   connection.trigger('updateButton', {
-                button: 'done',
+                button: 'next',
                 enabled: true
             });
        case 'step2' :
@@ -247,9 +247,7 @@ define(["postmonger"], function (Postmonger) {
 	tDataObj.message = getMessage();
 	
 	payload.name = 'mctest_sms';
-		
-	console.log(JSON.stringify(payload["arguments"]));
-	
+			
 	jObj.phoneNumber = "{{Event."+eventDefinitionKey+".phoneNumber}}";
 	
 	jObj.dataExtensionObj = dataExtensionObj;
@@ -267,7 +265,9 @@ define(["postmonger"], function (Postmonger) {
 	
 	payload["metaData"].isConfigured = true;
 	
+	console.log(JSON.stringify(payload["arguments"]));
 	connection.trigger("updateActivity", payload);
+	
   }
 
   function getMessage() {
