@@ -43,6 +43,7 @@ define(["postmonger"], function (Postmonger) {
     connection.trigger("requestEndpoints");
     connection.trigger('requestSchema');
     
+    connection.trigger('updateButton', { button: 'next', enabled: true });
   }
 
   function initialize(data) {	
@@ -89,6 +90,9 @@ define(["postmonger"], function (Postmonger) {
 		}
       });
     });
+    
+    showStep(null, 1);
+    connection.trigger('updateButton', { button: 'next', enabled: true });
 
   }
 
@@ -191,7 +195,6 @@ define(["postmonger"], function (Postmonger) {
     if (stepIndex && !step) {
       step = steps[stepIndex - 1];
     }
-	
 	
     currentStep = step;
 
