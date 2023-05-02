@@ -110,6 +110,7 @@ define(["postmonger"], function (Postmonger) {
 	
 	console.log("number : "+$("#phone").val());
 	console.log("text   : "+$("#textA01").val());
+	console.log("currentStep.key   : "+currentStep.key);
 	  
   	$(".div2").hide();	
 	switch(currentStep.key) {
