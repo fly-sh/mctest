@@ -197,10 +197,11 @@ define(["postmonger"], function (Postmonger) {
 	
     currentStep = step;
 
-    $(".step").hide();
+    $(".div2").hide();
     
    	switch(currentStep.key) {
 		   case 'step1' :
+			   $('#step1').show();
 			   connection.trigger('updateButton', {
                     button: 'next',
                     enabled: Boolean(getMessage())
