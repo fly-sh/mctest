@@ -43,7 +43,6 @@ define(["postmonger"], function (Postmonger) {
     connection.trigger("requestEndpoints");
     connection.trigger('requestSchema');
     
-    connection.trigger('updateButton', { button: 'next', enabled: true });
   }
 
   function initialize(data) {	
@@ -200,11 +199,19 @@ define(["postmonger"], function (Postmonger) {
 
     $(".step").hide();
     
-    connection.trigger("updateButton", {
+   	switch(currentStep.key) {
+		   case 'step1' :
+			   connection.trigger('updateButton', {
+                    button: 'next',
+                    enabled: Boolean(getMessage())
+                });
+		   break;
+   }
+/*    connection.trigger("updateButton", {
             button: "next",
             text: "done",
             visible: true,
-          });
+          });*/
   }
 
 	var arrObj = new Array();
