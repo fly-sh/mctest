@@ -75,8 +75,8 @@ define(["postmonger"], function (Postmonger) {
         /*if (key === "message") {
           message = val;
         }*/
-        if(key === "phoneNumber") {
-			console.log("phoneNumber ::: "+ val);
+        if(key === "mobilephone") {
+			console.log("mobilephone ::: "+ val);
 			//$('input[name=phone]').attr('value',val);
 		}else if(key === "message"){
 			console.log("message ::: "+val);
@@ -181,7 +181,7 @@ define(["postmonger"], function (Postmonger) {
     function onGetSchema(data) { // Data Extension 필드 확인가능
     	console.log("onGetSchema : " + JSON.stringify(data));
         
-        var exceptionField = ["phoneNumber"];
+        var exceptionField = ["mobilephone"];
         var excptDeField = ["message"];
         
 		personalFieldArr = new Array();
@@ -250,7 +250,7 @@ define(["postmonger"], function (Postmonger) {
 	payload.name = 'mctest_sms';
 	var FieldNm = $("#FieldNm").val();
 	
-	jObj.phoneNumber = "{{Event."+eventDefinitionKey+".phoneNumber}}";
+	jObj.mobilephone = "{{Event."+eventDefinitionKey+".mobilephone}}";
 	
 	jObj.dataExtensionObj = dataExtensionObj;
     jObj.personalFieldArr = personalFieldArr;
