@@ -249,13 +249,8 @@ define(["postmonger"], function (Postmonger) {
 	
 	payload.name = 'mctest_sms';
 	var FieldNm = $("#FieldNm").val();
-			
-	if(FieldNm==''||FieldNm==null) {
-		jObj.phoneNumber = "{{Event."+eventDefinitionKey+".phoneNumber}}";
-	}else {
-		jObj.phoneNumber = "{{Event."+eventDefinitionKey+"."+FieldNm+"}}";
-	}
-	//jObj.phoneNumber = "{{Event."+eventDefinitionKey+".phoneNumber}}";
+	
+	jObj.phoneNumber = "{{Event."+eventDefinitionKey+".phoneNumber}}";
 	
 	jObj.dataExtensionObj = dataExtensionObj;
     jObj.personalFieldArr = personalFieldArr;
