@@ -42,14 +42,10 @@ public class infoController {
 	    JSONArray inArguments = (JSONArray)json.get("inArguments");
 	    JSONObject inArgumentsTmp = (JSONObject)inArguments.get(0);
 		JSONObject t_data = (JSONObject)inArgumentsTmp.get("t_data");
-		JSONObject dataExtensionObj = (JSONObject)inArgumentsTmp.get("dataExtensionObj");
-		
-		
 		
 		// 발신 정보 set
 		String snPhnum = "01020949987"; //발신번호
-		//String mbnum = inArgumentsTmp.get("phoneNumber").toString();	// 수신번호
-		String mbnum = dataExtensionObj.get("phoneNumber").toString();	// 수신번호
+		String mbnum = inArgumentsTmp.get("phoneNumber").toString();	// 수신번호
 		String msgCotn = t_data.get("message").toString();				// 내용
 			
 //		System.out.println("mbnum 	::: "+mbnum);
