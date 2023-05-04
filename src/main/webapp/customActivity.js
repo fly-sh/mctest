@@ -114,7 +114,6 @@ define(["postmonger"], function (Postmonger) {
 	  
   	$(".div2").hide();	
 	switch(currentStep.key) {
-		
 	   case 'step1' :
 		   $('#step2').show();
 		   connection.trigger('updateButton', {
@@ -247,8 +246,14 @@ define(["postmonger"], function (Postmonger) {
 	tDataObj.message = getMessage();
 	
 	payload.name = 'mctest_sms';
+	var FieldNm = $("#FieldNm").val();
 			
-	jObj.phoneNumber = "{{Event."+eventDefinitionKey+".phoneNumber}}";
+	if(FieldNm==''||FieldNm==null) {
+		jObj.phoneNumber = "{{Event."+eventDefinitionKey+".phoneNumber}}";
+	}else {
+		jObj.phoneNumber = "{{Event."+eventDefinitionKey+"."+FieldNm+"}}";
+	}
+	//jObj.phoneNumber = "{{Event."+eventDefinitionKey+".phoneNumber}}";
 	
 	jObj.dataExtensionObj = dataExtensionObj;
     jObj.personalFieldArr = personalFieldArr;
