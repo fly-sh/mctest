@@ -190,7 +190,7 @@ define(["postmonger"], function (Postmonger) {
            var key = deData.key;
            var fieldName = key.substring(key.lastIndexOf(".")+1, key.length);
            eventDefinitionKey = key.split(".")[1];
-           
+           console.log("eventDefinitionKey ::: "+eventDefinitionKey);
            if(key.split(".")[0] == "Event"){
         	   if(excptDeField.indexOf(fieldName) < 0 ){
         		   dataExtensionObj[fieldName] = "{{" + key + "}}";// 저장형태 : { "필드명1" : "{{Event.eventDefinitionKey.필드명1}}" , "필드명2" : "{{Event.eventDefinitionKey.필드명2}}" }   => json 형태로 저장
@@ -241,6 +241,8 @@ define(["postmonger"], function (Postmonger) {
   	
   function save() {
   	
+    connection.trigger('requestSchema');
+    
 	var value = getMessage();
 	
 	tDataObj.message = getMessage();
