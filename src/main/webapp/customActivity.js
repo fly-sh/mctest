@@ -70,7 +70,7 @@ define(["postmonger"], function (Postmonger) {
       
     var setData = inArguments[0];
       
-    console.log('setData.message :: '+setData.message);
+    console.log('setData.message :: '+setData);
       
     $.each(inArguments, function (index, inArgument) {
       $.each(inArgument, function (key, val) {
