@@ -47,7 +47,7 @@ define(["postmonger"], function (Postmonger) {
 
   function initialize(data) {	
 	console.log("initialize start ");
-	console.log(JSON.stringify(data));
+	//console.log(JSON.stringify(data));
 	
     if (data) {
       payload = data;
@@ -66,10 +66,12 @@ define(["postmonger"], function (Postmonger) {
         payload["arguments"].execute.inArguments.length > 0
     );
 
-    var inArguments = hasInArguments
-      ? payload["arguments"].execute.inArguments
-      : {};
-
+    var inArguments = hasInArguments ? payload["arguments"].execute.inArguments : {};
+      
+    var setData = inArguments[0];
+      
+    console.log('setData.message :: '+setData.message);
+      
     $.each(inArguments, function (index, inArgument) {
       $.each(inArgument, function (key, val) {
         /*if (key === "message") {
