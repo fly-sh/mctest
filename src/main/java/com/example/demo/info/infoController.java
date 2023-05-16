@@ -25,7 +25,6 @@ import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.time.LocalDateTime;
 
-
 @RequestMapping("/call")
 @RestController
 public class infoController {
@@ -50,7 +49,8 @@ public class infoController {
 		
 		System.out.println("mobilephone :: "+inArgumentsTmp.get("mobilephone"));
 		
-		if(inArgumentsTmp.get("mobilephone").equals(null)||inArgumentsTmp.get("mobilephone").equals("")) {
+		//if(inArgumentsTmp.get("mobilephone").equals(null)||inArgumentsTmp.get("mobilephone").equals("")) {
+		if(inArgumentsTmp.get("mobilephone")==null) {
 			mbnum = inArgumentsTmp.get("phoneNumber").toString();
 		}else {
 			mbnum = inArgumentsTmp.get("mobilephone").toString();
