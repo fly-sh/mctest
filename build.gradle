@@ -29,8 +29,6 @@ dependencies {
 	// https://mvnrepository.com/artifact/com.googlecode.json-simple/json-simple
 	implementation group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1.1'
 
-	// https://mvnrepository.com/artifact/net.sf.json-lib/json-lib
-	implementation 'net.sf.json-lib:json-lib:2.4'
 
 }
 
