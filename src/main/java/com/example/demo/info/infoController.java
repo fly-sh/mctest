@@ -45,7 +45,16 @@ public class infoController {
 		
 		// 발신 정보 set
 		String snPhnum = "01020949987"; //발신번호
-		String mbnum = inArgumentsTmp.get("mobilephone").toString();	// 수신번호
+		
+		String mbnum ;
+		
+		if(inArgumentsTmp.get("mobilephone")==null) {
+			mbnum = inArgumentsTmp.get("phoneNumber").toString();
+		}else {
+			mbnum = inArgumentsTmp.get("mobilephone").toString();
+		}
+		
+//		String mbnum = inArgumentsTmp.get("mobilephone").toString();	// 수신번호
 		String msgCotn = t_data.get("message").toString();				// 내용
 			
 //		System.out.println("mbnum 	::: "+mbnum);
