@@ -48,7 +48,9 @@ public class infoController {
 		
 		String mbnum ;
 		
-		if(inArgumentsTmp.get("mobilephone")==null) {
+		System.out.println("mobilephone :: "+inArgumentsTmp.get("mobilephone"));
+		
+		if(inArgumentsTmp.get("mobilephone").equals(null)||inArgumentsTmp.get("mobilephone").equals("")) {
 			mbnum = inArgumentsTmp.get("phoneNumber").toString();
 		}else {
 			mbnum = inArgumentsTmp.get("mobilephone").toString();
