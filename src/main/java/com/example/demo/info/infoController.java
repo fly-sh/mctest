@@ -57,7 +57,7 @@ public class infoController {
 		}else {
 			mbnum = inArgumentsTmp.get("mobilephone").toString();
 		}
-		
+		 
 //		String mbnum = inArgumentsTmp.get("mobilephone").toString();	// 수신번호
 		String msgCotn = t_data.get("message").toString();				// 내용
 			
