@@ -54,6 +54,8 @@ public class infoController {
 			mbnum = inArgumentsTmp.get("Lead:Phone").toString();
 		}else if(inArgumentsTmp.get("phoneNumber")!=null) {
 			mbnum = inArgumentsTmp.get("phoneNumber").toString();
+		}else if(inArgumentsTmp.get("Phone")!=null) {
+			mbnum = inArgumentsTmp.get("Phone").toString();
 		}else {
 			mbnum = inArgumentsTmp.get("mobilephone").toString();
 		}
